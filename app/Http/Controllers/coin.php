@@ -42,7 +42,7 @@ class coin extends Controller
         curl_close($curl);
 
         $coinList = json_decode($response, true); //because of true, it's in an array
-
+//
         $data = [];
         $data['coinList'] = $coinList;
 
