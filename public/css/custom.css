@@ -1,0 +1,305 @@
+/* COLORS */
+.light-blue{
+    color: #3F88C5;
+}
+
+.cobalt{
+    color: #0471A6;
+}
+
+.red{
+    color: #FF3C38;
+}
+
+.orange{
+    color: #FCB043;
+}
+
+.light-green{
+    color: #78FEAB;
+}
+
+.green{
+    color: #009933;
+}
+
+.mauve{
+    color: #AC80A0;
+}
+
+.purple{
+    color: #7e7ee8;
+}
+
+.dark-purple{
+    color: #292959;
+}
+
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+body.light-off {
+    color: #f7f7f7;
+    background-color: #28344e;
+    font-size: 14px;
+}
+
+body.light-on {
+    color: #28344e;
+    background-color: #f7f7f7;
+    font-size: 14px;
+}
+
+#map {
+    height: 300px;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
+}
+#lineChart {
+    height: 300px;
+}
+
+.unica{
+    font-family: 'Unica One', cursive;
+}
+
+.volk{
+    font-family: 'Volkhov', serif;
+}
+
+.exo{
+    font-family: 'Exo', sans-serif;
+}
+
+
+
+.panel-transparent .panel-heading{
+    background: rgba(122, 130, 136, 0.2)!important;
+}
+
+.panel-transparent .panel-body{
+    background: rgba(46, 51, 56, 0.2)!important;
+}
+.panel-transparent {
+    background-color: transparent;
+}
+footer {
+    color: #FFFFFF;
+    background-color: #041019;
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    height: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.vr {
+    width: 1px;
+    height: 90px;
+    background-color: #fff;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.vr2 {
+    width: 1px;
+    height: 200px;
+    background-color: #fff;
+}
+
+.mybar > div {
+    float: left;
+}
+
+.bardata {
+    margin-top: 25px;
+    padding-right: 0px;
+}
+
+.bardatatitle {
+    color: #FFFFFF;
+    font-size: 10pt;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.bardatadata {
+    color: #FFFFFF;
+    font-size: 21pt;
+    font-weight: 800;
+}
+
+.bar {
+    margin-top: 25px;
+}
+
+.middle {
+    margin-top: 25px;
+}
+
+.logo {
+    height: 90px;
+}
+
+.mstr-main-logo{
+    font-size: 18px;
+    font-weight: bolder;
+    color: #7e7ee8;
+    font-family: 'Exo', sans-serif;
+}
+
+.Labels {
+    font-weight: 900;
+    font-size: 20pt;
+    padding-bottom: 20px;
+}
+
+.blockdetails {
+  padding-left: 0;
+}
+
+.blockdetails > div {
+    margin-top: 5px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.blockdetails > div > span {
+    font-size: 10pt;
+    font-weight: 900;
+}
+
+.blockdetails > .row > .col-md-2 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.blockdetails > row > .col-md-10 {
+    padding-left: 5%;
+    padding-right: 10%;
+}
+
+.mybar2 > .bardata > .bardatatitle {
+
+}
+
+.mybar2 > .bardata > .bardatadata {
+
+}
+
+.modal {
+    color: #000000;
+}
+
+.sidebarOpen {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Stay on top */
+    top: 0;
+    left: -250px;
+    background-color: #041019; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    border-right: 1px solid #ffffff;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus {
+    color: #818181;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+table.display tbody tr:hover td {
+    background-color: #818181 !important;
+    color: #000000 !important;
+}
+
+/* pi */
+
+.pibardata {
+    margin-top: 2px;
+    padding-right: 20px;
+    border-right: 1px solid #ffffff;
+}
+
+.pibardataend {
+    margin-top: 2px;
+    padding-right: 20px;
+}
+
+.pibardatatitle {
+    color: #FFFFFF;
+    font-size: 15vm;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pibardatadata {
+    color: #FFFFFF;
+    font-size: 20vm;
+    font-weight: 800;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 750px) {
+
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    footer {
+        height: 35px !important;
+    }
+}

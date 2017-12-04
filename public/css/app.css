@@ -1,0 +1,410 @@
+.test {
+  border: 1px solid red;
+}
+.unica {
+  font-family: 'Unica One', cursive;
+}
+.volk {
+  font-family: 'Volkhov', serif;
+}
+.exo {
+  font-family: 'Exo', sans-serif;
+}
+.mstr-login-img {
+  width: 4em;
+  margin: 10px;
+}
+.mstr-login-img-lg {
+  width: 4em;
+  margin: 10px;
+}
+.mstr-login-link {
+  color: white;
+  font-weight: bolder;
+  font-size: 17px;
+}
+.mstr-welcome-header {
+  color: #78FEAB;
+  border-bottom: 3px solid #78FEAB;
+  padding-bottom: 5px;
+}
+.mstr-welcome-header-no-border {
+  color: #78FEAB;
+  padding-bottom: 5px;
+}
+.mstr-login-wrapper {
+  -webkit-box-shadow: #6d6cab -12px -12px 61px;
+          box-shadow: #6d6cab -12px -12px 61px;
+  border-radius: 10px;
+  padding: 4em 2em 5em 2em;
+}
+.mstr-top-quad {
+  line-height: 1.45em;
+  padding: 1em;
+  text-align: center;
+}
+.mstr-coin-name {
+  font-family: 'Exo', sans-serif;
+  color: #1D82AD;
+  font-size: 18px;
+  font-weight: bold;
+}
+.mstr-coin-current-value {
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+  color: #78FEAB;
+}
+.mstr-coin-roi {
+  color: #FF8B41;
+  font-weight: bold;
+  font-size: 16px;
+}
+.mstr-coin-pct-chg {
+  font-weight: bold;
+}
+.mstr-coin-market-cap {
+  color: #78FEAB;
+}
+.mstr-coin-node-worth {
+  color: #78FEAB;
+}
+.mstr-coin-daily-return {
+  color: #78FEAB;
+}
+.mstr-coin-weekly-return {
+  color: #78FEAB;
+}
+.mstr-coin-monthly-return {
+  color: #78FEAB;
+}
+.mstr-coin-yearly-return {
+  color: #78FEAB;
+}
+/*** START ACTIVE GRID ***/
+.active-grid-blade {
+  padding: 1em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+.active-grid-blade label {
+  font-family: 'Exo', sans-serif;
+  opacity: .4;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.active-grid-blade .mstr-coin-stats div div div,
+.active-grid-blade .mstr-node-stats div div div,
+.active-grid-blade .mstr-coin-returns div div {
+  font-size: 14px;
+}
+.active-grid-blade .mstr-coin-current-value {
+  font-size: 16px;
+}
+.mstr-info-msg {
+  color: #1D82AD;
+  font-family: 'Exo', sans-serif;
+}
+.mstr-warn-msg {
+  color: #eee530;
+  font-family: 'Exo', sans-serif;
+}
+.mstr-error-msg {
+  color: #D44836;
+  font-family: 'Exo', sans-serif;
+}
+/*** END ACTIVE GRID ***/
+/*** START ADS TOP GRID ***/
+.mstr-ad-wrapper {
+  overflow: auto;
+}
+.ads-top-list-blade {
+  letter-spacing: 1px;
+}
+.ads-top-list-blade label {
+  font-family: 'Exo', sans-serif;
+  font-size: 12px;
+  opacity: .4;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.ads-top-list-blade .mstr-coin-current-value {
+  font-size: 20px;
+}
+.ads-top-list-blade .mstr-coin-name {
+  font-size: 24px;
+}
+.ads-top-list-blade .mstr-coin-roi {
+  color: #FF8B41;
+  font-weight: bold;
+  font-size: 20px;
+}
+.ads-top-list-blade .mstr-coin-stats {
+  padding: .5em 0em;
+}
+.ads-top-list-blade .mstr-coin-returns {
+  padding: .5em;
+}
+/*** END ADS TOP GRID ***/
+.mstr-coin-spon {
+  color: #FF8B41;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.mstr-coin-stats,
+.mstr-coin-returns,
+.mstr-coin.spon,
+.mstr-updated,
+.mstr-help-fund-row {
+  border-top: 1px solid #323258;
+  padding-top: 5px;
+}
+.mstr-coin-stats div div div,
+.mstr-node-stats div div div,
+.mstr-coin-returns div div {
+  font-size: 20px;
+}
+.mstr-website-link {
+  color: #1D82AD;
+  font-family: 'Roboto', sans-serif;
+}
+.mstr-coin-wrapper,
+.mstr-coming-soon-wrapper {
+  -webkit-box-shadow: inset #6d6cab 1px 1px 6px;
+          box-shadow: inset #6d6cab 1px 1px 6px;
+  border-radius: 16px;
+  padding: 1em 1em 2em 1em;
+  overflow: visible;
+}
+.mstr-spon-click {
+  color: #78FEAB;
+  font-family: 'Exo', sans-serif;
+  font-size: 18px;
+}
+.mstr-coming-soon-notes {
+  border-top: 1px solid #323258;
+  padding-top: 5px;
+  font-family: 'Exo', sans-serif;
+}
+.mstr-help-fund-need {
+  color: #FF8B41;
+  font-family: 'Unica One', cursive;
+}
+.mstr-help-fund-row div div label {
+  font-family: 'Exo', sans-serif;
+  font-size: 12px;
+  opacity: .4;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.mstr-coin-donate-bitcoin-address {
+  color: black;
+  font-size: 7px;
+  font-weight: bold;
+  -webkit-transform: scale(1, 1.8);
+          transform: scale(1, 1.8);
+}
+#gridSorter {
+  height: 2em;
+  font-size: 18px;
+}
+.mstr-sort-header {
+  color: #78FEAB;
+  margin-top: 6px;
+  margin-left: 2em;
+  border-bottom: 3px solid #78FEAB;
+  padding-bottom: 5px;
+}
+/*** START TAG MY NODES ***/
+.mstr-tagit-blade {
+  font-family: 'Exo', sans-serif;
+}
+.mstr-tag-icon {
+  width: 4em;
+  opacity: .9;
+}
+.mstr-tag-coin-step,
+.mstr-tag-submit {
+  display: none;
+}
+.mstr-tag-coin-cmd,
+.mstr-tag-coin-public {
+  margin-top: 2em;
+}
+.mstr-tag-next,
+.mstr-tag-submit {
+  margin-top: 1.5em;
+}
+.mstr-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 26px;
+}
+.mstr-switch input {
+  display: none;
+}
+.mstr-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.mstr-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .mstr-slider {
+  background-color: #535353;
+}
+input:focus + .mstr-slider {
+  -webkit-box-shadow: 0 0 1px #1D82AD;
+          box-shadow: 0 0 1px #1D82AD;
+}
+input:checked + .mstr-slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.mstr-slider.mstr-round {
+  border-radius: 34px;
+}
+.mstr-slider.mstr-round:before {
+  border-radius: 50%;
+}
+.mstr-slider-labels {
+  vertical-align: top;
+  margin: 3px 6px;
+}
+.mstr-new-tag-interface {
+  -webkit-box-shadow: #6d6cab -12px -12px 61px;
+          box-shadow: #6d6cab -12px -12px 61px;
+  border-radius: 10px;
+  padding: 4em 2em 5em 2em;
+}
+.smt-align-middle {
+  vertical-align: middle;
+}
+.mstr-tag-more {
+  margin: 1em 0em;
+}
+.mstr-tagit-coin-list {
+  margin: .75em;
+}
+.mstr-tagit-tagged-interface {
+  -webkit-box-shadow: #3b3a5f -1px -1px 11px;
+          box-shadow: #3b3a5f -1px -1px 11px;
+  border-radius: 10px;
+  padding: 1em 2em 1em 0em;
+  margin: 5px 0em;
+  overflow: auto;
+}
+.mstr-tagit-coin-icon {
+  display: block;
+  margin-top: 1em;
+}
+.mstr-tagit-coin-name {
+  display: block;
+  margin-top: 2em;
+}
+.mstr-tagit-filter-input {
+  margin: 1em 0em;
+}
+.mstr-tagit-stats-expand a.mstr-expand-btn {
+  color: #FFFFFF;
+  font-weight: bolder;
+}
+.mstr-tagit-pro-stats {
+  display: none;
+}
+/*** END TAG MY NODES ***/
+/*** START SUBSCRIPTION ***/
+.mstr-subscribe-page {
+  font-family: 'Exo', sans-serif;
+}
+.mstr-subscription-name {
+  vertical-align: middle;
+  font-family: 'Exo', sans-serif;
+  color: #6E20F3;
+}
+.smt-tagit-subscribe {
+  margin-top: 0.5em;
+}
+.mstr-subscribe-special-offer {
+  font-weight: bolder;
+  color: #1D82AD;
+}
+.mstr-benefit-list {
+  height: 20em;
+}
+.mstr-benefit-list li {
+  margin-top: 10px;
+}
+/*** END SUBSCRIPTION ***/
+@media only screen and (max-width: 480px) {
+  .mstr-benefit-list {
+    height: auto;
+  }
+  .mstr-benefit-list li {
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .mstr-benefit-list {
+    height: auto;
+  }
+  .mstr-benefit-list li {
+    margin-top: 10px;
+  }
+}
+/*** < ACTIVE LIST ***/
+#active_coin_list {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: #1f2332 0 0 10px 5px;
+}
+#active_coin_list td,
+#active_coin_list th {
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+}
+#active_coin_list td {
+    border-bottom: #3d4a53 1px solid;
+    padding: 15px 0;
+}
+#active_coin_list tr:last-child td {
+    border: none;
+}
+.light-off #active_coin_list th {
+    background-color: #21293e;
+}
+#active_coin_list td.icon img {
+    width: 50px;
+}
+.light-off #active_coin_list.table-striped>tbody>tr {
+    border-bottom: #e2e2e2 1px solid;
+}
+.light-off #active_coin_list.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #252f48;
+}
+.light-off #active_coin_list.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: #252f48;
+}
+.light-off #active_coin_list.table-striped>tbody>tr:hover {
+    background-color: #32416a;
+}
+/*** ACTIVE LIST > ***/
