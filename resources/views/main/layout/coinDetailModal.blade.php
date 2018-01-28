@@ -6,10 +6,27 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <div class="modal-title">Modal Header</div>
             </div>
             <div class="modal-body">
-                <p>Some text in the modal.</p>
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="detail_header0"></div>
+                  <div class="detail_inifo0"></div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="detail_header1"></div>
+                  <div class="detail_inifo1"></div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="detail_header2"></div>
+                  <div class="detail_inifo2"></div>
+                </div>
+                <div class="col-sm-3">
+                  <div class="detail_header3"></div>
+                  <div class="detail_inifo3"></div>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

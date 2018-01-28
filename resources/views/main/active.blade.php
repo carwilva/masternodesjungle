@@ -96,12 +96,18 @@
         </div>
     </div>
     @include('main.layout.footer')
+    <!-- Modal Section -->
     <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     </div>
+
+    <!-- Applicants Modal -->
+    <!-- Button trigger modal -->
+    
+    
 </div>
 @include('main.layout.analytics')
 <script>
-    $('[data-toggle="popover"]').popover()
+    $('[data-toggle="popover"]').popover();
 </script>
 </body>
 </html>

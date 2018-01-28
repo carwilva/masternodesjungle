@@ -1,0 +1,54 @@
+[08-Jan-2018 18:07:51 UTC] PHP Warning:  Uncaught ErrorException: require_once(controllers/simple_html_dom.php): failed to open stream: No such file or directory in /home/carwilva1/public_html/app/Http/Controllers/coin.php:14
+Stack trace:
+#0 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require_once(co...', '/home/carwilva1...', 14, Array)
+#1 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): require_once()
+#2 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(444): include('/home/carwilva1...')
+#3 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/carwilva1...')
+#4 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Contro...')
+#5 [internal function]: spl_autoload_call('App\\Http\\Contro...')
+#6 /home/carwilva1/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
+#7 /home/carwilva1/public_html in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:07:51 UTC] PHP Fatal error:  main(): Failed opening required 'controllers/simple_html_dom.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:08:28 UTC] PHP Warning:  Uncaught ErrorException: require_once(/Controllers/simple_html_dom.php): failed to open stream: No such file or directory in /home/carwilva1/public_html/app/Http/Controllers/coin.php:14
+Stack trace:
+#0 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require_once(/C...', '/home/carwilva1...', 14, Array)
+#1 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): require_once()
+#2 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(444): include('/home/carwilva1...')
+#3 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/carwilva1...')
+#4 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Contro...')
+#5 [internal function]: spl_autoload_call('App\\Http\\Contro...')
+#6 /home/carwilva1/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
+#7 /home/carwilva1/public_htm in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:08:28 UTC] PHP Fatal error:  main(): Failed opening required '/Controllers/simple_html_dom.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:09:25 UTC] PHP Warning:  Uncaught ErrorException: require_once(/Controllers/scrape/simple_html_dom.php): failed to open stream: No such file or directory in /home/carwilva1/public_html/app/Http/Controllers/coin.php:14
+Stack trace:
+#0 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require_once(/C...', '/home/carwilva1...', 14, Array)
+#1 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): require_once()
+#2 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(444): include('/home/carwilva1...')
+#3 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/carwilva1...')
+#4 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Contro...')
+#5 [internal function]: spl_autoload_call('App\\Http\\Contro...')
+#6 /home/carwilva1/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(729): ReflectionClass->__construct('App\\Http\\Contro...')
+#7 /home/carwilva1/pub in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:09:25 UTC] PHP Fatal error:  main(): Failed opening required '/Controllers/scrape/simple_html_dom.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:13:14 UTC] PHP Warning:  Uncaught ErrorException: require_once(/home/carwilva1/public_html/app/Http/Controllers/Controllers/scrape/simple_html_dom.php): failed to open stream: No such file or directory in /home/carwilva1/public_html/app/Http/Controllers/coin.php:14
+Stack trace:
+#0 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'require_once(/h...', '/home/carwilva1...', 14, Array)
+#1 /home/carwilva1/public_html/app/Http/Controllers/coin.php(14): require_once()
+#2 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(444): include('/home/carwilva1...')
+#3 /home/carwilva1/public_html/vendor/composer/ClassLoader.php(322): Composer\Autoload\includeFile('/home/carwilva1...')
+#4 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Http\\Contro...')
+#5 [internal function]: spl_autoload_call('App\\Http\\Contro...')
+#6 /home/carwilva1/public_html/vendor/laravel/framework/src/Illuminate/Container/Container.php(729): ReflectionClass->__construc in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:13:14 UTC] PHP Fatal error:  main(): Failed opening required '/home/carwilva1/public_html/app/Http/Controllers/Controllers/scrape/simple_html_dom.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 14
+[08-Jan-2018 18:26:10 UTC] PHP Fatal error:  Cannot redeclare file_get_html() (previously declared in /home/carwilva1/public_html/app/Http/Controllers/scrape/simple_html_dom.php:70) in /home/carwilva1/public_html/app/Http/Controllers/simple_html_dom.php on line 85
+[08-Jan-2018 18:27:12 UTC] PHP Fatal error:  Cannot redeclare file_get_html() (previously declared in /home/carwilva1/public_html/app/Http/Controllers/simple_html_dom.php:70) in /home/carwilva1/public_html/app/Http/Controllers/simple_html_dom.php on line 85
+[08-Jan-2018 18:28:09 UTC] PHP Fatal error:  Cannot redeclare file_get_html() (previously declared in /home/carwilva1/public_html/app/Http/Controllers/simple_html_dom.php:70) in /home/carwilva1/public_html/app/Http/Controllers/simple_html_dom.php on line 85
+[14-Jan-2018 04:13:31 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:33 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:36 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:37 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:40 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:41 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[14-Jan-2018 04:13:44 UTC] PHP Fatal error:  Cannot use App\Model\MasterNodesCoin as MasterNodesCoin because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/coin.php on line 13
+[16-Jan-2018 23:14:01 UTC] PHP Fatal error:  Cannot use Validator as Validator because the name is already in use in /home/carwilva1/public_html/app/Http/Controllers/AdminController.php on line 16

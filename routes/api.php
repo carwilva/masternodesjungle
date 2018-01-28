@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 Route::middleware('api')->get('/coinlist', function (Request $request) {
 	$coin = new \App\Http\Controllers\coin();
-	return $coin->coinList();
+	return $coin->_coinList();
 });

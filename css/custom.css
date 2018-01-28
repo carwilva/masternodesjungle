@@ -1,0 +1,720 @@
+/* COLORS */
+.light-blue{
+    color: #3F88C5;
+}
+
+.cobalt{
+    color: #0471A6;
+}
+
+.red{
+    color: #FF3C38;
+}
+
+.orange{
+    color: #FCB043;
+}
+
+.light-green{
+    color: #78FEAB;
+}
+
+.green{
+    color: #009933;
+}
+
+.mauve{
+    color: #AC80A0;
+}
+
+.purple{
+    color: #7e7ee8;
+}
+
+.dark-purple{
+    color: #292959;
+}
+
+#bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+#bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}
+
+body.light-off {
+    color: #f7f7f7;
+    background-color: #000000;
+    font-size: 13px;
+}
+
+body.light-on {
+    color: #28344e;
+    background-color: #ffffff;
+    font-size: 13px;
+}
+
+#map {
+    height: 300px;
+    overflow: hidden;
+    padding-bottom: 22.25%;
+    padding-top: 30px;
+    position: relative;
+}
+#lineChart {
+    height: 300px;
+}
+
+.unica{
+    font-family: 'Unica One', cursive;
+}
+
+.volk{
+    font-family: 'Volkhov', serif;
+}
+
+.exo{
+    font-family: 'Exo', sans-serif;
+}
+
+
+
+.panel-transparent .panel-heading{
+    background: rgba(122, 130, 136, 0.2)!important;
+}
+
+.panel-transparent .panel-body{
+    background: rgba(46, 51, 56, 0.2)!important;
+}
+.panel-transparent {
+    background-color: transparent;
+}
+footer {
+    color: #FFFFFF;
+    background-color: #041019;
+    font-family: 'Roboto', sans-serif;
+    position: fixed;
+    height: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.vr {
+    width: 1px;
+    height: 90px;
+    background-color: #fff;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.vr2 {
+    width: 1px;
+    height: 200px;
+    background-color: #fff;
+}
+
+.mybar > div {
+    float: left;
+}
+
+.bardata {
+    margin-top: 25px;
+    padding-right: 0px;
+}
+
+.bardatatitle {
+    color: #FFFFFF;
+    font-size: 10pt;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.bardatadata {
+    color: #FFFFFF;
+    font-size: 21pt;
+    font-weight: 800;
+}
+
+.bar {
+    margin-top: 25px;
+}
+
+.middle {
+    margin-top: 25px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.mstr-main-logo{
+    font-size: 25px;
+    /*font-weight: bolder;
+     color: #7e7ee8; */
+}
+
+.Labels {
+    font-weight: 900;
+    font-size: 20pt;
+    padding-bottom: 20px;
+}
+
+.blockdetails {
+  padding-left: 0;
+}
+
+.blockdetails > div {
+    margin-top: 5px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.blockdetails > div > span {
+    font-size: 10pt;
+    font-weight: 900;
+}
+
+.blockdetails > .row > .col-md-2 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.blockdetails > row > .col-md-10 {
+    padding-left: 5%;
+    padding-right: 10%;
+}
+
+.mybar2 > .bardata > .bardatatitle {
+
+}
+
+.mybar2 > .bardata > .bardatadata {
+
+}
+
+.modal {
+    color: #000000;
+}
+
+.sidebarOpen {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    z-index: 1;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Stay on top */
+    top: 0;
+    left: -250px;
+    background-color: #041019; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    border-right: 1px solid #ffffff;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus {
+    color: #818181;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+table.display tbody tr:hover td {
+    background-color: #818181 !important;
+    color: #000000 !important;
+}
+
+/* pi */
+
+.pibardata {
+    margin-top: 2px;
+    padding-right: 20px;
+    border-right: 1px solid #ffffff;
+}
+
+.pibardataend {
+    margin-top: 2px;
+    padding-right: 20px;
+}
+
+.pibardatatitle {
+    color: #FFFFFF;
+    font-size: 15vm;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pibardatadata {
+    color: #FFFFFF;
+    font-size: 20vm;
+    font-weight: 800;
+}
+
+.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 750px) {
+
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    footer {
+        height: 35px !important;
+    }
+}
+/* --------- light on custom css ----------- */
+.stripe>div {
+    border-left: none;
+    border-right: none;
+}
+.nav.nav-pills {
+    border-radius: 4px; 
+}
+#active_coin_list {
+    box-shadow: none;
+}
+
+td.ranking:before{
+    display: none!important;
+}
+#active_coin_list td{
+  border-bottom: none;
+}
+.tab-content {
+  margin-bottom:50px;
+}
+.coin-box {
+  box-shadow: none;
+}
+#active_coin_list td.name{
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align:left;
+}
+#active_coin_list td.price, 
+#active_coin_list td.volume,
+#active_coin_list td.marketcap,
+#active_coin_list td.MasterNodes,
+#active_coin_list td.Required,
+#active_coin_list td.Worth{
+    font-size: 13px;
+/*     font-weight: 600; */
+}
+#active_coin_list td.price{
+    color: #5050ce;
+}
+#active_coin_list td.ranking{
+  font-size:11px;
+}
+.g_sym, .g_pri{
+    font-size: 18px;
+    font-weight: bold;
+}
+.g_perh {
+    font-size: 15px;
+    font-weight: bold;
+}
+.light-off #active_coin_list td.roi{
+    color: #debc57;
+    text-align:left;
+}
+.light-off #active_coin_list_wrapper,
+.light-off .vote{
+    color: #7b7b7b;
+}
+#active_coin_list td.roi {
+    font-size: 13px;
+/*     font-weight: bold; */
+    color: #14c714;
+    text-align:left;
+}
+#active_coin_list td.change {
+    font-size: 13px;
+    color: #4be14b;
+/*     font-weight: bold; */
+}
+.modal-dialog{
+    top:20%;
+}
+.modal-header{
+  padding-bottom: 0px!important;
+}
+.modal-title {
+    text-align: center;
+    font-size: 13px;
+    color: #337ab7;
+}
+.modal-body .row {
+    padding-bottom:10px!important;
+}
+.prc_btc.hid,
+.prc_usd.hid{
+  display: none;
+}
+.prc_btc, .prc_usd {
+  display: block;
+}
+.top_header.fix_section.container {
+  position: fixed;
+  top: 60px;
+  background: white;
+  padding:0px!important;
+}
+.light-off .top_header.fix_section.container{
+  background: black;
+}
+
+.detail_header0,
+.detail_header1,
+.detail_header2,
+.detail_header3{
+  padding-top: 10px;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #aaa;
+/*   padding-left: 25px; */
+  border-top: 1px solid #303030;
+  text-align: center;
+}
+.light-on .detail_header0,
+.light-on .detail_header1,
+.light-on .detail_header2,
+.light-on .detail_header3{
+  color: black;
+}
+
+
+.light-off .modal-content{
+  background-color: #0c0d10;
+/*   border: 1px solid white; */
+  box-shadow: #24292f 0 0 5px 2px;
+}
+.light-on .detail_inifo2,
+.light-on .detail_inifo3{
+  color: black!important;
+  padding-top: 10px;
+  padding-left: 40px;
+  font-size: 11.5px;
+}
+.light-off .detail_inifo2,
+.light-off .detail_inifo3{
+  color: white!important;
+  padding-top: 10px;
+  padding-left: 40px;
+  font-size: 11.5px;
+}
+.light-off .detail_inifo0,
+.light-on .detail_inifo0{
+  color: red;
+  padding-top: 10px;
+  padding-left: 40px;
+  font-size:11.5px;
+}
+.light-off .text-success {
+  color: #ffc107d1!important;
+}
+.light-on .detail_inifo1,
+.light-off .detail_inifo1{
+  color: #4be14b;
+  padding-top: 10px;
+  padding-left: 40px;
+  font-size: 11.5px;
+}
+#coin_detail_modal .modal-body .modal-body {
+  padding-bottom: 0px!important;
+  padding-top: 0px!important;
+}
+#coin_detail_modal .modal-body .col-sm-3 {
+  padding: 0px!important;
+}
+#coin_detail_modal .modal-footer {
+  display: none;
+}
+
+
+.light-on .detail_inifo0,
+.light-on .detail_inifo1,
+.light-on .detail_inifo2,
+.light-on .detail_inifo3{
+  padding-top: 15px;
+}
+.light-off #exampleModal .modal-body,
+.light-off #exampleModa2 .modal-body .thkmsg{
+  color:#7b7b7b!important;
+}
+.light-off .btn_don{
+  background: #41463d;
+  border: none;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #b5b5b5;
+}
+.light-on .btn_don{
+  background: #41463d;
+  border: none;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.light-on .xrb_sec{
+  color: #5050ce;
+}
+.light-off .xrb_sec{
+  color: #c1ab68;
+}
+.light-on .eth_sec{
+  color: #14c714;
+}
+.light-off .eth_sec{
+  color: #14c714;
+}
+
+
+.nav>li>a {
+  padding: 3px 10px!important;
+}
+.new_web,
+.new_api,
+.new_detail,
+.new_name,
+.new_api_nw,
+.new_web_icon,
+.required_coin,
+.new_api1,
+.new_api2{
+  width: 200px!important;
+}
+
+@media (max-width:1160px) and (min-width:1090px){
+  .logo{
+    height:35px;
+  }
+  .logo_section{
+    width: 29%;
+  }
+  .set_section{
+    width: 71%;
+  }
+  .top_header.fix_section.container{
+    top: 55px;
+  }
+}
+@media (max-width:1089px) and (min-width:1013px){
+  .logo{
+    height:25px;
+    margin-top: 7px;
+  }
+  .logo_section{
+    width: 23%;
+  }
+  .set_section{
+    width: 77%;
+  }
+  .top_header.fix_section.container{
+    top: 55px;
+  }
+}
+@media (max-width:1013px) and (min-width:800px){
+  .btc_info{
+    display: none!important;
+  }
+  .nav>li>a{
+    padding: 1px 5px!important;
+  }
+  .logo{
+    height:25px;
+    margin-top: 7px;
+  }
+  .logo_section{
+    width: 29%;
+  }
+  .set_section{
+    width: 71%;
+  }
+  .cur_set{
+    margin-left:60px!important;
+  }
+  .btn_don{
+    padding: 1px 5px!important;
+  }
+  .list-inline>li{
+    padding: 0px!important;
+  }
+  .cur_section{
+    margin-left: 135px!important;
+  }
+  .top_header.fix_section.container{
+    top: 50px;
+  }
+}
+@media (max-width:800px) and (min-width: 400px){
+  .logo_section>ul{
+    text-align: center;
+  }
+  .logo{
+    height:25px;
+    margin-top: 7px;
+  }
+  .set_section{
+    text-align:center;
+  }
+  .btc_info{
+    display: none!important;
+  }
+  .top_header.fix_section.container{
+    top: 95px;
+  }
+  .logo_section, .set_section{
+    width: 100%!important;
+  }
+  .coin-list .text-center{
+    margin-top: 45px!important;
+    margin-bottom: 16px!important;
+  }
+}
+@media (max-width:400px){
+  .logo_section>ul{
+    text-align: center;
+  }
+  .logo{
+    height:25px;
+    margin-top: 7px;
+  }
+  .set_section{
+    text-align:center;
+  }
+  .btc_info{
+    display: none!important;
+  }
+  .top_header.fix_section.container{
+    top: 120px;
+  }
+  .logo_section, .set_section{
+    width: 100%!important;
+  }
+  .coin-list .text-center{
+    margin-top: 55px!important;
+    margin-bottom: 16px!important;
+  }
+  .social_set{
+    margin-top: -30px!important;
+  }
+  .btn_mod, .btn_don{
+    margin-top:8px;
+  }
+}
+.light-off #exampleModalLabel .modal-body{
+    color: #7b7b7b!important;
+}
+a.vote{
+    border-radius: 5px;
+    padding: 7px 20px;
+    background: #41463d;
+    /* color: #7b7b7b; */
+    color: #b5b5b5!important;
+    font-size: 14px;
+}
+.light-off .modal-header{
+    background-color: #23272e;
+    border-bottom:none!important;
+}
+.light-off .modal-footer{
+    border-top: 1px solid #303030!important;
+}
+.light-off .modal-footer button{
+    background-color: #23272e;
+    border-color: #2e2e2e;
+    color: #b5b5b5;
+}
+.modal-title img{
+    width: 32px;
+}
+
+.pl50 {
+    padding-left: 50px;
+}
+#coin_detail_modal .grid_price{
+    color: #6666fd;
+}
+#exampleModal .modal-header .modal-title{
+    font-size:20px;
+}
+.light-on #coin_detail_modal .modal-header{
+    border: none!important;
+}
+.light-on #coin_detail_modal .modal-title>div:nth-child(1){
+    background: #e2e2e2;
+}
+.light-off .gridday{
+    color: red;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 12px;
+}
+.light-off .gridweek{
+    color: #4be14b;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 12px;
+}
+.light-off .gridmon,
+.light-off .gridyear{
+    text-align: left;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+/*page load*/
+.page-load {
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    top: 0;
+    z-index:9999;
+    background-image: url("https://www.creditmutuel.fr/cmne/fr/banques/webservices/nswr/images/loading.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: rgba(0,0,0,0.25);
+}

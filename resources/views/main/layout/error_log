@@ -1,0 +1,4 @@
+[09-Jan-2018 17:41:31 UTC] PHP Notice:  Undefined variable: coinList in /home/carwilva1/public_html/resources/views/main/layout/activeCoinList.blade.php on line 62
+[09-Jan-2018 17:41:31 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/carwilva1/public_html/resources/views/main/layout/activeCoinList.blade.php on line 62
+[09-Jan-2018 17:41:55 UTC] PHP Notice:  Undefined variable: coinList in /home/carwilva1/public_html/resources/views/main/layout/activeCoinList.blade.php on line 62
+[09-Jan-2018 17:41:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/carwilva1/public_html/resources/views/main/layout/activeCoinList.blade.php on line 62

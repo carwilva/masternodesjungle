@@ -2,30 +2,432 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Blocks;
 use Validator, Input, Redirect, View, Auth;
 use App\Mnl;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\elasticSearch;
+use App\Model\MasterNodesCoin;
+use Illuminate\Support\Facades\DB;
 
+require_once dirname(__FILE__).'/simple_html_dom.php';
 class coin extends Controller
 {
     public static $sort = 'roi';
 
     public function index()
     {
-        $data = $this->generateData();
-        
-        return view('main.welcome', $data);
-
-        // return view('main.welcome', '');
+        $data = $this->getcoininfolist('USD');
+        return view('main.welcome')->with('coinList', $data);
     }
+  
+    
+    public function indexBTC()
+    {
+        $data = $this->getcoininfolist('BTC');
+        return view('main.welcome')->with('coinList',$data);
+    }
+  
+    public function indexUSD()
+    {
+        $data = $this->getcoininfolist('USD');
 
+        return view('main.welcome')->with('coinList',$data);
+    }
+  
+    public function vote()
+    {
+        $data = $this->getcoininfolist('USD');
+        $vote_coin = DB::table('vote')
+                      ->orderby('votes', 'DESC')
+                      ->get();
+        $id = \Auth::user()->id;
+        $checkvote = DB::table('vote_history')
+                      ->where('user_id',$id)
+                      ->get();
+        $indexcheck = 0;
+        if(count($checkvote) >0)
+        {
+            foreach ($checkvote as $vote)
+            {
+              $check_vote[$indexcheck] = $vote->coin_id;
+              $indexcheck++;
+            }
+            $index = 0;
+            foreach ($vote_coin as $votecoin)
+            {
+              $coin_vote[$index]['coinID'] = $votecoin->id;
+              $coin_vote[$index]['url'] = $votecoin->icon_url;
+              $coin_vote[$index]['coin'] = $votecoin->coin;
+              $coin_vote[$index]['sysmbol'] = $votecoin->coin_symbol;
+              $coin_vote[$index]['votes'] = $votecoin->votes;
+              $index++;
+
+            }
+            return view('main.vote')->with(array('votecoinList'=> $coin_vote, 'checked_vote'=>$check_vote,'coinList'=> $data));
+        }else{
+            $index = 0;
+            foreach ($vote_coin as $votecoin)
+            {
+              $coin_vote[$index]['coinID'] = $votecoin->id;
+              $coin_vote[$index]['url'] = $votecoin->icon_url;
+              $coin_vote[$index]['coin'] = $votecoin->coin;
+              $coin_vote[$index]['sysmbol'] = $votecoin->coin_symbol;
+              $coin_vote[$index]['votes'] = $votecoin->votes;
+              $index++;
+
+            }
+            return view('main.vote')->with(array('votecoinList'=> $coin_vote,'coinList'=> $data));
+        }
+        
+    }
+    
+    public function addvote(request $request)
+    {
+        $userID = $request->userID;
+        $coinID = $request->coinID;
+        $num = $request->vote;
+        $valid = MasterNodesCoin::getvotebyuserID($userID, $coinID);
+        if(count($valid) >0 ){
+          echo json_encode(array('response'=>'false'));  
+        } else {
+          $return = MasterNodesCoin::registervote($userID, $coinID);
+          MasterNodesCoin::updatevotenum($coinID,$num);
+          echo json_encode(array('response'=>'true'));
+        }
+    }
+  
+     public function removevote(request $request)
+     {
+        $userID = $request->userID;
+        $coinID = $request->coinID;
+        $num = $request->vote;
+        $valid = MasterNodesCoin::getvotebyuserID($userID, $coinID);
+        $ID = $valid->id;
+        if(count($valid) >0 ){
+          $return = MasterNodesCoin::removevote($ID);
+          MasterNodesCoin::updatevotenum($coinID,$num);
+          echo json_encode(array('response'=>'true'));  
+        } else {
+          echo json_encode(array('response'=>'false'));
+        }
+     }
+  
+  
+    public function registernode(request $request)
+    {   
+        $coin = $request->name;
+        $detail = $request->detail;
+//         $new_api_vol = $request->new_api_vol;
+//         $new_api_market = $request->new_api_market;
+//         $new_api_tnode = $request->new_api_tnode;
+        $new_recoin = $request->new_require_coin;
+        $new_api_nw = $request->new_api_nw;
+        $new_web = $request->new_web;
+        $new_web_icon = $request->new_web_icon;
+        $new_api1 = $request->new_api1;
+        $new_api2 = $request->new_api2;
+        
+      
+        //$EmailTo = "cooleric826@outlook.com";
+        $EmailTo = "masternodesjungle@gmail.com";
+        $Body = '<br><div style="width: 100%; max-width: 800px; margin: 0 auto;">';
+        $headers = "From: Masternodesjungle <portal@masternodesjungle.com>\r\n";
+        $headers .= "Reply-To: <" . $EmailTo . ">\r\n";
+        $headers .= "BCC: lee@hallenmedia.net\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        $headers .= "X-Priority: 1 (Highest)\r\n";
+        $headers .= "X-MSMail-Priority: High\r\n";
+        $headers .= "Importance: High\r\n";
+        
+        $Subject = "New Regsiter MasterNode From Masternodejungle.com";
+        $Body .= "<h3><strong>Coin name:   </strong>". $coin . '</h3><br><h3><strong>Symbol:   </strong>'. $detail;//."</h3><br><h3>     
+        $Body .= "<h3><strong>Coin Api:   </strong>". $new_api_nw."</h3><br><h3><strong>Website Url:   </strong>". $new_web ."</h3><br><h3><strong>Coin Icon Url:   </strong>". $new_web_icon;
+        $Body .= "<h3><strong>Api1:   </strong>". $new_api1 . "</h3><br><h3><strong>NApi2:   </strong>". $new_api2;
+        $success = mail($EmailTo, $Subject, $Body, $headers);
+        $vali_coin = DB::table('masternode_coin')
+                      ->where('coin_name', $coin)
+                      ->get();
+        if(count($vali_coin) >0){
+          echo json_encode(false);
+          
+        }else{
+          $return = MasterNodesCoin::registerapplicant($coin,$detail,$new_recoin,$new_api_nw,$new_web,$new_web_icon,$new_api1,$new_api2,0);
+          echo json_encode(true);
+          //return view('main.layout.activeComingSoonList')->with('addCoin', $addcoin);
+        }
+        
+    }
+  
+//     public function griddetail(request $request){
+//       $coinname = $request->coinname;
+//       $pos_sta = strpos($coinname, '(', 1);
+//       $pos_end = strpos($coinname, ')', 1);
+//       $new_symbol = substr($coinname,$pos_sta+1,$pos_end-$pos_sta-1);
+//       $url = 'https://masternodes.online/currencies/' . $new_symbol;
+//       $html = file_get_html($url);
+           
+//       $title = array();
+//       $info = array();
+//       for($i = 0;$i<4; $i++)
+//       {
+//         $title[$i] = $html->find('h3.panel-title',$i)->innertext();
+//         $info[$i] = $html->find('.bs-component .panel-body',$i)->innertext();
+//       }
+      
+//       echo json_encode(array('title'=>$title, 'info'=>$info));
+      
+//     }
+  
+    public function detailinfo(request $request)
+    {
+      $det_url = $request->detail_url;
+      $url = 'https://masternodes.online/currencies/' . $det_url;
+      $html = file_get_html($url);
+           
+      $title = array();
+      $info = array();
+      for($i = 0;$i<4; $i++)
+      {
+        $title[$i] = $html->find('h3.panel-title',$i)->innertext();
+        $info[$i] = $html->find('.bs-component .panel-body',$i)->innertext();
+      }
+      
+      $table = $html->find('table.table.table-striped',0)->innertext();
+      $pos_sta = strpos($table, '<td>ROI (annual):</td>', 1);
+      $pos_end = strpos($table, '<td>Paid', 1);
+      $detailcoin = substr($table,$pos_sta+23,50);
+      $pos_sta1 = strpos($detailcoin, '<td>', 1);
+      $pos_end1 = strpos($detailcoin, 'days</td>', 1);
+      $detailcoin1 = substr($detailcoin,$pos_sta1+4,$pos_end1-$pos_sta1);
+      echo json_encode(array('title'=>$title, 'info'=>$info, 'roi_det'=>$detailcoin1));
+    }
+  
+    public function readmore(request $request)
+    {
+      $data = $this->getcoininfolist('USD', 2);
+    
+      echo json_encode(array('detailinfo'=> $data));
+      
+    }
+  
+    private function getcoininfolist($sele, $morenumber = 1)
+    {   
+
+        $registered_masternodes_symbol = MasterNodesCoin::getsymbol();
+        
+        $html = file_get_html('https://masternodes.online/');
+      
+        $coinList[0]['total_node'] = $html->find('#banner.col-lg-9>strong', 0)->innertext();
+        $coinList[0]['total_online'] = $html->find('#banner.col-lg-9>strong', 1)->innertext();
+        $coinList[0]['total_wrth_usd'] = $html->find('#banner.col-lg-9>strong', 2)->innertext();
+        $coinList[0]['total_wrth_btc'] = $html->find('#banner.col-lg-9>strong', 3)->innertext();
+        $coinList[0]['total_vol_usd'] = $html->find('#banner.col-lg-9>strong', 4)->innertext();
+        $coinList[0]['total_vol_btc'] = $html->find('#banner.col-lg-9>strong', 5)->innertext();
+        $coinList[0]['total_mcp_usd'] = $html->find('#banner.col-lg-9>strong', 6)->innertext();
+        $coinList[0]['total_mcp_btc'] = $html->find('#banner.col-lg-9>strong', 7)->innertext();
+        $coinList[0]['usd_btc'] = $html->find('#banner.col-lg-9>strong', 8)->innertext();
+        $total_number = (float)($html->find('#banner.col-lg-9>strong', 0)->innertext());
+      
+        $i = 1;
+        $index = 1;
+
+        do {
+            $row = $html->find('#masternodes_table>tbody>tr', $i);
+            $title = $row->find('a', 0)->innertext();
+            $pos_sta = strpos($title, '(', 1);
+            $pos_end = strpos($title, ')', 1);
+            $new_symbol = substr($title,$pos_sta+1,$pos_end-$pos_sta-1);
+            if(in_array($new_symbol, $registered_masternodes_symbol)){
+              $coinList[$index-1]['title'] = $row->find('a', 0)->innertext();
+              $coinList[$index-1]['url'] = 'https://masternodes.online/';
+              $coinList[$index-1]['url'] .=$row->find('img', 0)->attr["src"];
+              if($sele == 'USD'){
+                $coinList[$index-1]['price_usd'] = '$'.$row->find('span',0)->attr["title"];
+                $coinList[0]['trans_cur'] = 'USD';
+              }else {
+                $coinList[$index-1]['price_usd'] = number_format((float)($row->find('span',0)->attr["title"])/(str_replace(',','',(ltrim($coinList[0]['usd_btc'], '$')))), 7, '.', '').'BTC';
+                $coinList[0]['trans_cur'] = 'BTC';
+              }
+              $coinList[$index-1]['change'] = $row->find('span',1)->innertext();
+              $coinList[$index-1]['volume'] = number_format((float)($row->find('span',2)->attr["title"]));
+              $coinList[$index-1]['marketcap'] = number_format((float)($row->find('span',3)->attr["title"]));
+              $coinList[$index-1]['roi'] = $row->find('strong>span.text-info',0)->attr["title"];
+              $coinList[$index-1]['nodes'] = number_format((float)($row->find('span',5)->attr["title"]));
+              $coinList[$index-1]['require'] = number_format((float)($row->find('span',6)->attr["title"]));
+              $coinList[$index-1]['mnworth'] = number_format((float)($row->find('span',7)->attr["title"]));
+              if($morenumber == 1){
+                  if($index < 7){
+                    $urlinfo = 'https://masternodes.online/currencies/' . $new_symbol;
+                    $htmlinfo = file_get_html($urlinfo);
+
+                     for($j = 0;$j<4; $j++)
+                     {
+                       $gridinfo = 'gridinfo'.$j;
+                       $coinList[$index-1][$gridinfo] = $htmlinfo->find('.bs-component .panel-body',$j)->innertext();
+                     }
+                  }else{
+                    for($j = 0;$j<4; $j++)
+                     {
+                       $gridinfo = 'gridinfo'.$j;
+                       $coinList[$index-1][$gridinfo] = '';
+                     }
+                  }
+              }else{
+                  $urlinfo = 'https://masternodes.online/currencies/' . $new_symbol;
+                  $htmlinfo = file_get_html($urlinfo);
+
+                   for($j = 0;$j<4; $j++)
+                   {
+                     $gridinfo = 'gridinfo'.$j;
+                     $coinList[$index-1][$gridinfo] = $htmlinfo->find('.bs-component .panel-body',$j)->innertext();
+                   }
+              }
+              $index++;
+            }
+          $i++;
+        } while ($i <= $total_number);  
+        $appli_coin = DB::table('applicants')
+          ->where('status', 1)
+          ->get();
+
+        foreach ($appli_coin as $coinitem)
+        {
+          $coinList[$index-1]['title'] = $coinitem->coin_name.'('.$coinitem->coin_symbol.')';
+          $coinList[$index-1]['url'] = $coinitem->icon_url;
+          if($sele == 'USD'){
+            $json = $this->_getCryptoInfo($coinitem->price_api);
+            $para = $coinitem->price_para;
+            $validation = count($json);
+            if($validation >0){
+              if(!$json[0]){
+                $coinList[$index-1]['price_usd'] = '?';
+              }else{
+                $coinList[$index-1]['price_usd'] = $json[0][$para];
+              }
+            }
+            $coinList[0]['trans_cur'] = 'USD';
+          }else {
+            $json = $this->_getCryptoInfo($coinitem->price_api);
+            $validation = count($json);
+            $coinList[$index-1]['price_usd'] = (float)($json[0][$para])/((float)($coinList[0]['usd_btc']));
+            $coinList[0]['trans_cur'] = 'BTC';
+          }
+          
+          $json = $this->_getCryptoInfo($coinitem->mn_api);
+          if($coinitem->mn_para){
+            $para = $coinitem->mn_para;
+            if($json[0][$para]){
+              $coinList[$index-1]['nodes'] = $json[0][$para];
+            }else{
+              $coinList[$index-1]['nodes'] = '?';
+            }
+          }else{
+            $coinList[$index-1]['nodes'] = '?';
+          }
+          
+          
+          $json = $this->_getCryptoInfo($coinitem->change_api);
+          if($coinitem->change_para){
+            $para = $coinitem->change_para;
+            if($json[0][$para]){
+              $coinList[$index-1]['change'] = $json[0][$para].'%';
+            }else{
+              $coinList[$index-1]['change'] = '?';
+            }
+          }else{
+            $coinList[$index-1]['change'] = '?';
+          }
+          
+          $json = $this->_getCryptoInfo($coinitem->volume_api);
+          if($coinitem->volume_para){
+            $para = $coinitem->volume_para;
+            if($json[0][$para]){
+              $coinList[$index-1]['volume'] = $json[0][$para];
+            }else{
+              $coinList[$index-1]['volume'] = '?';
+            }
+          }else{
+            $coinList[$index-1]['volume'] = '?';
+          }
+          
+          $json = $this->_getCryptoInfo($coinitem->supply_api);
+          if($coinitem->supply_para){
+            $para = $coinitem->supply_para;
+            if($json[0][$para]){
+              $coinList[$index-1]['marketcap'] = number_format(intval((float)$json[0][$para] * (float)($coinList[$index-1]['price_usd'])));
+            }else{
+              $coinList[$index-1]['marketcap'] = '?';
+            }
+          }else{
+            $coinList[$index-1]['marketcap'] = '?';
+          }
+          
+          $coinList[$index-1]['require'] = $coinitem->required_coin;
+          
+          $coinList[$index-1]['roi'] = '?';
+          $coinList[$index-1]['mnworth'] = number_format(intval((float)($coinitem->required_coin)*(float)($coinList[$index-1]['price_usd'])));
+          $index++;
+        }
+        $bannerinfo = DB::table('banner')->get();
+        $coinList[0]['banner_url'] = $bannerinfo[0]->banner_url;
+        $coinList[0]['banner_link'] = $bannerinfo[0]->banner_link;
+        $coinList[0]['footer_url'] = $bannerinfo[0]->footer_url;
+        $coinList[0]['footer_link'] = $bannerinfo[0]->footer_link;
+        
+        return $coinList;
+      
+    }
+  
     private function generateData()
     {
-        $url = "https://api.coinmarketcap.com/v1/ticker/";
+        // get masternode coin list from db
+        $coinList = MasterNodesCoin::getCoinList();
+        $coins = '';
+        foreach ($coinList as $coin) {
+            $coins .= $coin['coin_symbol'] . ',';
+        }
 
+        $url_marketcap = "https://api.coinmarketcap.com/v1/ticker/?start=0&limit=2000";
+
+        $json = $this->_getCryptoInfo($url_marketcap);
+        //var_dump($json);exit;
+        $detail_marketcap = array();
+        foreach ($json as $detail) {
+            $detail_marketcap[$detail['symbol']] = $detail;
+        }
+        
+        $url_cryptocompare = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=%s&tsyms=USD";
+        $detail_cryptocompare = $this->_getCryptoInfo(sprintf($url_cryptocompare, $coins));
+
+        // get full list of coins
+        $url_cryptocompare_full = "https://www.cryptocompare.com/api/data/coinlist/";
+        $full_list = $this->_getCryptoInfo($url_cryptocompare_full);
+
+        $coinDetail = array();
+
+        foreach ($coinList as $coin) 
+        {
+            $symbol = $coin['coin_symbol'];
+            $coinDetail[$symbol] = array();
+            if (array_key_exists($symbol, $detail_marketcap))
+                $coinDetail[$symbol] += $detail_marketcap[$symbol];
+            if (array_key_exists($symbol, $detail_cryptocompare['RAW']))
+                $coinDetail[$symbol] += $detail_cryptocompare['RAW'][$symbol]['USD'];
+            if (array_key_exists($symbol, $detail_cryptocompare['DISPLAY']))
+                $coinDetail[$symbol]['DISPLAY'] = $detail_cryptocompare['DISPLAY'][$symbol]['USD'];
+            if (array_key_exists($symbol, $full_list['Data']))
+                $coinDetail[$symbol]['ImageUrl'] = $full_list['BaseImageUrl'] . $full_list['Data'][$symbol]['ImageUrl'];
+        }
+
+        return $coinDetail;
+    }
+
+    private function _getCryptoInfo($url) 
+    {
         $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -41,53 +443,7 @@ class coin extends Controller
 
         curl_close($curl);
 
-        $coinList = json_decode($response, true); //because of true, it's in an array
-//
-        $data = [];
-        $data['coinList'] = $coinList;
-
-        /*foreach ($coinList['Data'] as $key => $coin) {
-            $coinDetail = [];
-            $coinDetail['price_usd'] = 1;
-            $coinDetail['totalMasterNodes'] = $coin['TotalCoinSupply'];
-            $coinDetail['masterNodeCoinsRequired'] = 'masterNodeCoinsRequired';
-            $coinDetail['income'] = 'income';
-            $coinDetail['lastUpdated'] = 'lastUpdated';
-            $coinDetail['cmc'] = [];
-            $coinDetail['cmc']['price_usd'] = 1;
-            $coinDetail['cmc']['percent_change_24h'] = 1;
-            $coinDetail['cmc']['market_cap_usd'] = 'market_cap_usd';
-            $coinDetail['market_cap'] = 'market_cap';
-            $coinDetail['coin_supply'] = 'coin_supply';
-            $coinDetail['percent_change_24h'] = 'percent_change_24h';
-            $coinDetail['coinLocked'] = 'coinLocked';
-            $coinDetail['coinLockedPercent'] = 'coinLockedPercent';
-            $coinDetail['dailyRev'] = 'dailyRev';
-            $coinDetail['weeklyRev'] = 'weeklyRev';
-            $coinDetail['monthlyRev'] = 'monthlyRev';
-            $coinDetail['yearlyRev'] = 'yearlyRev';
-            $coinDetail['coin'] = $coin['Name'];
-            $coinDetail['name'] = $coin['CoinName'];
-            $coinDetail['roi'] = 'roi';
-            $coinDetail['realRoi'] = 'realRoi';
-            $coinDetail['logo'] = 'imageurl';
-            $coinDetail['ads'] = 'ads';
-            $coinDetail['url'] = 'url';
-            $coinDetail['roi'] = 'offline';
-            $coinDetail['dailyRev'] = 'offline';
-            $coinDetail['weeklyRev'] = 'offline';
-            $coinDetail['monthlyRev'] = 'offline';
-            $coinDetail['yearlyRev'] = 'offline';
-            $coinDetail['realRoi'] = -1;
-            $coinDetail['disabled'] = 'disabled';
-            $coinDetail['mnpstat'] = 'mnpstat';
-            $coinDetail['realRoi'] = -1;
-
-            $data['coinList'][$key] = $coinDetail;
-        }*/
-        
-        // return $data;
-        return $data;
+        return json_decode($response, TRUE);
     }
 
     private function coinLockedPercent($total, $supply)
